@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
 
-export default function Clue() {
+export default function ClueModal() {
 
 };

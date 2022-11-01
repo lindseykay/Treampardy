@@ -12,12 +12,12 @@ export default function GameBoard() {
     }
     const [url1, url2, url3, url4, url5, url6] = urlNumsList;
 
-    const [category1, setCategory1] = useState({})
-    const [category2, setCategory2] = useState({})
-    const [category3, setCategory3] = useState({})
-    const [category4, setCategory4] = useState({})
-    const [category5, setCategory5] = useState({})
-    const [category6, setCategory6] = useState({})
+    const [category3, setCategory3] = useState([])
+    const [category1, setCategory1] = useState([])
+    const [category4, setCategory4] = useState([])
+    const [category5, setCategory5] = useState([])
+    const [category6, setCategory6] = useState([])
+    const [category2, setCategory2] = useState([])
 
 
 

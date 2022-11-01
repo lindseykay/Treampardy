@@ -101,13 +101,47 @@ export default function GameBoard() {
 
     return (
         <>
-            <div>
-                <p>{category1.title}</p>
-                {/* <p>{category2}</p>
-                <p>{category3}</p>
-                <p>{category4}</p>
-                <p>{category5}</p>
-                <p>{category6}</p> */}
+            <div className="container">
+                <div className="col">
+                    <div className="row">
+                        Header
+                    </div>
+                    <div className="row">
+                        1
+                    </div>
+                    <div className="row">
+                        2
+                    </div>
+                    <div className="row">
+                        3
+                    </div>
+                    <div className="row">
+                        4
+                    </div>
+                    <div className="row">
+                        5
+                    </div>
+                </div>
+                <div className="col">
+                    <div className="row">
+                        Header
+                    </div>
+                    <div className="row">
+                        1
+                    </div>
+                    <div className="row">
+                        2
+                    </div>
+                    <div className="row">
+                        3
+                    </div>
+                    <div className="row">
+                        4
+                    </div>
+                    <div className="row">
+                        5
+                    </div>
+                </div>
             </div>
         </>
     )

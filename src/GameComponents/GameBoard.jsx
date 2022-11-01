@@ -112,7 +112,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 1
+                                    {category1.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -121,7 +121,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 2
+                                    {category2.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -130,7 +130,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 3
+                                    {category3.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -139,7 +139,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 4
+                                    {category4.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -148,7 +148,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 5
+                                    {category5.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -157,7 +157,7 @@ export default function GameBoard() {
                         <Card>
                             <Card.Body>
                                 <Card.Text>
-                                    Header 6
+                                    {category6.title}
                                 </Card.Text>
                             </Card.Body>
                         </Card>

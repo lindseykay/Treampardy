@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+import HeaderBar from "./GameBoardHeader";
 import HeaderCard from "./HeaderCard";
 import BoardCard from "./BoardCard";
 
@@ -98,6 +99,9 @@ export default function GameBoard() {
 
     return (
         <>
+            <div>
+                {HeaderBar("text goes here?")}
+            </div>
             <div>
                 <Container fluid>
                     <Row>

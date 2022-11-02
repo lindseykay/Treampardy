@@ -1,119 +1,28 @@
 import React, { useState, useEffect } from "react"
-
+import { NavLink } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-
-export default function GameBoard() {
-
-
-    let urlNumsList = [];
-    while (urlNumsList.length < 6) {
-        let urlNum = Math.floor(Math.random() * 27723 + 1);
-        if (!urlNumsList.includes(urlNum)) {
-            urlNumsList.push(urlNum);
-        }
-    }
-    const [url1, url2, url3, url4, url5, url6] = urlNumsList;
-
-    const [category1, setCategory1] = useState([])
-    const [category2, setCategory2] = useState([])
-    const [category3, setCategory3] = useState([])
-    const [category4, setCategory4] = useState([])
-    const [category5, setCategory5] = useState([])
-    const [category6, setCategory6] = useState([])
+import Button from "react-bootstrap/Button";
 
 
 
-    useEffect(() => {
-        async function fetchCategory1() {
-            const url = `http://jservice.io/api/category?id=${url1}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory1(data);
-            }
-        }
-        fetchCategory1();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory2() {
-            const url = `http://jservice.io/api/category?id=${url2}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory2(data);
-            }
-        }
-        fetchCategory2();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory3() {
-            const url = `http://jservice.io/api/category?id=${url3}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory3(data);
-            }
-        }
-        fetchCategory3();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory4() {
-            const url = `http://jservice.io/api/category?id=${url4}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory4(data);
-            }
-        }
-        fetchCategory4();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory5() {
-            const url = `http://jservice.io/api/category?id=${url5}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory5(data);
-            }
-        }
-        fetchCategory5();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory6() {
-            const url = `http://jservice.io/api/category?id=${url6}`;
-            const response = await fetch(url);
-            if (response.ok) {
-                const data = await response.json();
-                setCategory6(data);
-            }
-        }
-        fetchCategory6();
-    }, []);
-
-
-
-
-
+export default function GameBoard(props) {
 
 
     return (
         <>
             <div>
+                <NavLink className="navbar-brand" to="/">Home</NavLink>
+                <NavLink className="navbar-brand" to="/clue">Go to Clue</NavLink>
                 <Container fluid>
                     <Row>
                         <Col>
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category1.title}
+                                        {props.category1.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -122,7 +31,7 @@ export default function GameBoard() {
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category2.title}
+                                        {props.category2.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -131,7 +40,7 @@ export default function GameBoard() {
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category3.title}
+                                        {props.category3.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -140,7 +49,7 @@ export default function GameBoard() {
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category4.title}
+                                        {props.category4.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -149,7 +58,7 @@ export default function GameBoard() {
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category5.title}
+                                        {props.category5.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -158,7 +67,7 @@ export default function GameBoard() {
                             <Card>
                                 <Card.Body>
                                     <Card.Text>
-                                        {category6.title}
+                                        {props.category6.title?.toUpperCase()}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -168,18 +77,18 @@ export default function GameBoard() {
                         <Col>
                             <Card>
                                 <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
+                                    <Button onClick={(e) => props.selectClue(0, 0)}>
+                                    200
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
                         <Col>
                             <Card>
                                 <Card.Body>
-                                    <Card.Text>
+                                    <Button onClick={(e) => props.selectClue(1, 0)}>
                                         200
-                                    </Card.Text>
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>

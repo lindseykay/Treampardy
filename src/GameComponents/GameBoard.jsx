@@ -129,20 +129,20 @@ export default function GameBoard() {
                         {BoardCard("400")}
                     </Row>
                     <Row>
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
+                        {BoardCard("600")}
+                        {BoardCard("600")}
+                        {BoardCard("600")}
+                        {BoardCard("600")}
+                        {BoardCard("600")}
+                        {BoardCard("600")}
                     </Row>
                     <Row>
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
+                        {BoardCard("800")}
+                        {BoardCard("800")}
+                        {BoardCard("800")}
+                        {BoardCard("800")}
+                        {BoardCard("800")}
+                        {BoardCard("800")}
                     </Row>
                     <Row>
                         {BoardCard("400")}

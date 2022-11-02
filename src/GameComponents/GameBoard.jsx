@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 
+import HeaderCard from "./HeaderCard";
+import BoardCard from "./BoardCard";
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 
 export default function GameBoard() {
-
 
     let urlNumsList = [];
     while (urlNumsList.length < 6) {
@@ -23,8 +23,6 @@ export default function GameBoard() {
     const [category4, setCategory4] = useState([])
     const [category5, setCategory5] = useState([])
     const [category6, setCategory6] = useState([])
-
-
 
     useEffect(() => {
         async function fetchCategory1() {
@@ -98,358 +96,60 @@ export default function GameBoard() {
         fetchCategory6();
     }, []);
 
-
-
-
-
-
-
     return (
         <>
             <div>
                 <Container fluid>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category1.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category2.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category3.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category4.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category5.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        {category6.title}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {HeaderCard(category1.title)}
+                        {HeaderCard(category2.title)}
+                        {HeaderCard(category3.title)}
+                        {HeaderCard(category4.title)}
+                        {HeaderCard(category5.title)}
+                        {HeaderCard(category6.title)}
                     </Row>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        200
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {BoardCard("200")}
+                        {BoardCard("200")}
+                        {BoardCard("200")}
+                        {BoardCard("200")}
+                        {BoardCard("200")}
+                        {BoardCard("200")}
                     </Row>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        400
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
                     </Row>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        600
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
                     </Row>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        800
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
                     </Row>
                     <Row>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                        <Col>
-                            <Card>
-                                <Card.Body>
-                                    <Card.Text>
-                                        1000
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
+                        {BoardCard("400")}
                     </Row>
                 </Container>
             </div>
         </>
     )
-
-
-
-
 }

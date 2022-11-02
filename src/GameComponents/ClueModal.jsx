@@ -4,7 +4,6 @@ import Modal from 'react-bootstrap/Modal';
 
 
 export default function ClueModal(props) {
-    // console.log("my props are= ",props);
     return (
         <Modal show={props.showClueBool} backdrop="static" keyboard={false}>
             <Modal.Header>

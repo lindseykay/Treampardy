@@ -114,7 +114,9 @@ export default function Game() {
     }
 
     function showAnswer() {
-        navigate("/answer", { replace: true });
+        // navigate("/answer", { replace: true });
+        setShowClueBool(false);
+        setShowAnswerBool(true);
     }
 
     function endTurn(gotAnswerCorrect) {
@@ -135,6 +137,7 @@ export default function Game() {
                     category5={category5}
                     category6={category6}
                     selectClue={selectClue}
+                    showAnswer={showAnswer}
                     showClueBool={showClueBool}
                     selectedClue={selectedClue}
                     showAnswerBool={showAnswerBool} />} />

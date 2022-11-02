@@ -5,6 +5,7 @@ import HeaderBar from "./GameBoardHeader";
 import HeaderCard from "./HeaderCard";
 import BoardCard from "./BoardCard";
 import ClueModal from "./ClueModal";
+import AnswerModal from "./AnswerModal";
 
 
 export default function GameBoard(props) {
@@ -68,6 +69,7 @@ export default function GameBoard(props) {
             </div>
             <div>
                 {ClueModal(props)}
+                {AnswerModal(props)}
             </div>
         </>
     )

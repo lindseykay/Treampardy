@@ -135,7 +135,8 @@ export default function Game() {
                     selectClue={selectClue} />} />
                 <Route path="clue/" element={<ClueModal
                     selectedClue={selectedClue}
-                    showAnswer={showAnswer}/>} />
+                    showAnswer={showAnswer}
+                    selectClue={selectClue}/>} />
                 <Route path="answer/" element={<AnswerModal
                     selectedClue={selectedClue}
                     endTurn={endTurn}/>} />

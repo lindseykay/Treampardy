@@ -7,7 +7,6 @@ import GameBoard from "../GameComponents/GameBoard";
 import EndPage from "../GameComponents/EndPage";
 import StartPage from "../GameComponents/StartPage";
 
-
 let urlNumsList = [];
 while (urlNumsList.length < 6) {
     let urlNum = Math.floor(Math.random() * 27723 + 1);
@@ -27,6 +26,8 @@ export default function Game() {
     const [category5, setCategory5] = useState({})
     const [category6, setCategory6] = useState({})
     const [selectedClue, setSelectedClue] = useState({})
+    const [showClueBool, setShowClueBool] = useState(false)
+    const [showAnswerBool, setShowAnswerBool] = useState(false)
 
     let navigate = useNavigate();
 
@@ -103,12 +104,13 @@ export default function Game() {
     }, []);
 
     function selectClue(category, clueNumber) {
-        if (category === 0 ) {
+        if (category === 0) {
             setSelectedClue(category1.clues[clueNumber])
         } else if (category === 1) {
             setSelectedClue(category2.clues[clueNumber])
         }
-        navigate("/clue", { replace: true });
+        setShowClueBool(true);
+        // navigate("/clue", { replace: true });
     }
 
     function showAnswer() {
@@ -132,14 +134,16 @@ export default function Game() {
                     category4={category4}
                     category5={category5}
                     category6={category6}
-                    selectClue={selectClue} />} />
-                <Route path="clue/" element={<ClueModal
+                    selectClue={selectClue}
+                    showClueBool={showClueBool}
                     selectedClue={selectedClue}
+                    showAnswerBool={showAnswerBool} />} />
+                {/* <Route path="clue/" element={<ClueModal
                     showAnswer={showAnswer}
-                    selectClue={selectClue}/>} />
+                    selectClue={selectClue} />} /> */}
                 <Route path="answer/" element={<AnswerModal
                     selectedClue={selectedClue}
-                    endTurn={endTurn}/>} />
+                    endTurn={endTurn} />} />
                 <Route element={<EndPage />} />
             </Routes>
         </div>

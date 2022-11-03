@@ -28,6 +28,7 @@ export default function Game() {
     const [showAnswerBool, setShowAnswerBool] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState({})
     const [selectedValue, setSelectedValue] = useState(0)
+    const [score, setScore] = useState(0)
 
     let navigate = useNavigate();
 
@@ -161,7 +162,9 @@ export default function Game() {
                     showAnswerBool={showAnswerBool}
                     selectedCategory={selectedCategory}
                     selectedValue={selectedValue}
-                    endTurn={endTurn} />} />
+                    endTurn={endTurn}
+                    score = {score}
+                    setScore = {setScore} />} />
                 <Route element={<EndPage />} />
             </Routes>
         </div>

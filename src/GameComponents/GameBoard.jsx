@@ -6,12 +6,14 @@ import HeaderCard from "./HeaderCard";
 import BoardCard from "./BoardCard";
 import ClueModal from "./ClueModal";
 import AnswerModal from "./AnswerModal";
+import { ScrollRestoration } from "react-router-dom";
 
 export default function GameBoard(props) {
     return (
         <>
             <div>
                 {HeaderBar("TREAMPARDY")}
+                Score: {props.score}
             </div>
             <div>
                 <Container fluid>

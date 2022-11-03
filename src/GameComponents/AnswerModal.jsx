@@ -11,7 +11,7 @@ export default function AnswerModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <br />
-                What/who is/was {props.selectedClue.answer}?
+                What/who is/was <strong>{props.selectedClue.answer}</strong>?
                 <br />
                 <br />
             </Modal.Body>

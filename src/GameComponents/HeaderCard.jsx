@@ -6,9 +6,9 @@ import Card from 'react-bootstrap/Card';
 export default function HeaderCard(categoryText) {
     return (
         <Col>
-        <Card className="cardStyles" style={{ height: "6rem" }}>
-            <Card.Body style={{ verticalAlign: "middle" }}>
-                <Card.Text>
+        <Card className="cardHeader" style={{ height: "6rem" }}>
+            <Card.Body>
+                <Card.Text className="cardHeaderText">
                     {categoryText}
                 </Card.Text>
             </Card.Body>

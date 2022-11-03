@@ -11,7 +11,7 @@ export default function BoardCard(props, amount, num1, num2) {
         <Card>
             <Card.Body>
                 <Card.Text>
-                    <Button onClick={(e) => props.selectClue({num1}, {num2})}>{amount}</Button>
+                    <Button onClick={(e) => props.selectClue(num1, num2)}>{amount}</Button>
                 </Card.Text>
             </Card.Body>
         </Card>

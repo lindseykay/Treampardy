@@ -9,7 +9,6 @@ import BoardCard from "./BoardCard";
 
 export default function GameBoard(props) {
 
-
     return (
         <>
             <div>

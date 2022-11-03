@@ -160,7 +160,7 @@ export default function Game() {
                     selectedCategory={selectedCategory}
                     selectedValue={selectedValue}
                     endTurn={endTurn} />} />
-                <Route element={<EndPage />} />
+                <Route path="complete/" element={<EndPage />} />
             </Routes>
         </div>
     );

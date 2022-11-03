@@ -134,7 +134,6 @@ export default function Game() {
 
     function endTurn(gotAnswerCorrect) {
         console.log(gotAnswerCorrect);
-        navigate("/gameboard", { replace: true });
         setShowAnswerBool(false)
     }
 

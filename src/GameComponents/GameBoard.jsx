@@ -12,7 +12,7 @@ export default function GameBoard(props) {
     return (
         <>
             <div>
-                {HeaderBar("text goes here?")}
+                {HeaderBar("TREAMPARDY")}
             </div>
             <div>
                 <Container fluid>
@@ -27,43 +27,43 @@ export default function GameBoard(props) {
                     <br />
                     <Row>
                         {BoardCard(props, "200", 0, 0)}
-                        {BoardCard("200")}
-                        {BoardCard("200")}
-                        {BoardCard("200")}
-                        {BoardCard("200")}
-                        {BoardCard("200")}
+                        {BoardCard(props, "200", 1, 0)}
+                        {BoardCard(props, "200", 2, 0)}
+                        {BoardCard(props, "200", 3, 0)}
+                        {BoardCard(props, "200", 4, 0)}
+                        {BoardCard(props, "200", 5, 0)}
                     </Row>
                     <Row>
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
+                        {BoardCard(props, "400", 0, 1)}
+                        {BoardCard(props, "400", 1, 1)}
+                        {BoardCard(props, "400", 2, 1)}
+                        {BoardCard(props, "400", 3, 1)}
+                        {BoardCard(props, "400", 4, 1)}
+                        {BoardCard(props, "400", 5, 1)}
                     </Row>
                     <Row>
-                        {BoardCard("600")}
-                        {BoardCard("600")}
-                        {BoardCard("600")}
-                        {BoardCard("600")}
-                        {BoardCard("600")}
-                        {BoardCard("600")}
+                        {BoardCard(props, "600", 0, 2)}
+                        {BoardCard(props, "600", 1, 2)}
+                        {BoardCard(props, "600", 2, 2)}
+                        {BoardCard(props, "600", 3, 2)}
+                        {BoardCard(props, "600", 4, 2)}
+                        {BoardCard(props, "600", 5, 2)}
                     </Row>
                     <Row>
-                        {BoardCard("800")}
-                        {BoardCard("800")}
-                        {BoardCard("800")}
-                        {BoardCard("800")}
-                        {BoardCard("800")}
-                        {BoardCard("800")}
+                        {BoardCard(props, "800", 0, 3)}
+                        {BoardCard(props, "800", 1, 3)}
+                        {BoardCard(props, "800", 2, 3)}
+                        {BoardCard(props, "800", 3, 3)}
+                        {BoardCard(props, "800", 4, 3)}
+                        {BoardCard(props, "800", 5, 3)}
                     </Row>
                     <Row>
-                        {BoardCard("1000")}
-                        {BoardCard("1000")}
-                        {BoardCard("1000")}
-                        {BoardCard("1000")}
-                        {BoardCard("1000")}
-                        {BoardCard("1000")}
+                        {BoardCard(props, "1000", 0, 4)}
+                        {BoardCard(props, "1000", 1, 4)}
+                        {BoardCard(props, "1000", 2, 4)}
+                        {BoardCard(props, "1000", 3, 4)}
+                        {BoardCard(props, "1000", 4, 4)}
+                        {BoardCard(props, "1000", 5, 4)}
                     </Row>
                 </Container>
             </div>

@@ -7,7 +7,7 @@ export default function ClueModal(props) {
     return (
         <Modal show={props.showClueBool} backdrop="static" centered keyboard={false}>
             <Modal.Header>
-                <Modal.Title>For: {props.selectedClue.value}</Modal.Title>
+                <Modal.Title>Category: {props.selectedCategory.title?.toUpperCase()}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <br />

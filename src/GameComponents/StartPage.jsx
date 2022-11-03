@@ -7,7 +7,7 @@ export default function StartPage(props) {
             <div className="px-4 py-5 my-5 text-center">
                 <img
                     alt=""
-                    src="/Tream-Logo.svg"
+                    src="/Treampardy-Logo.svg"
                     width="300"
                     height="300"
                     className="d-inline-block align-top"

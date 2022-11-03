@@ -12,6 +12,8 @@ code {
     monospace;
 }
 
-.cardStyles {
-  width: 8rem;
+.cardHeaderText {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
 }

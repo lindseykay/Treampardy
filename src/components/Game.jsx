@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import AnswerModal from "../GameComponents/AnswerModal";
-import ClueModal from "../GameComponents/ClueModal";
 import GameBoard from "../GameComponents/GameBoard";
 import EndPage from "../GameComponents/EndPage";
 import StartPage from "../GameComponents/StartPage";
@@ -28,6 +26,8 @@ export default function Game() {
     const [selectedClue, setSelectedClue] = useState({})
     const [showClueBool, setShowClueBool] = useState(false)
     const [showAnswerBool, setShowAnswerBool] = useState(false)
+    const [selectedCategory, setSelectedCategory] = useState({})
+    const [selectedValue, setSelectedValue] = useState(0)
 
     let navigate = useNavigate();
 
@@ -104,17 +104,30 @@ export default function Game() {
     }, []);
 
     function selectClue(category, clueNumber) {
+        setSelectedValue((clueNumber + 1) * 200)
         if (category === 0) {
             setSelectedClue(category1.clues[clueNumber])
+            setSelectedCategory(category1)
         } else if (category === 1) {
             setSelectedClue(category2.clues[clueNumber])
+            setSelectedCategory(category2)
+        } else if (category === 2) {
+            setSelectedClue(category3.clues[clueNumber])
+            setSelectedCategory(category3)
+        } else if (category === 3) {
+            setSelectedClue(category4.clues[clueNumber])
+            setSelectedCategory(category4)
+        } else if (category === 4) {
+            setSelectedClue(category5.clues[clueNumber])
+            setSelectedCategory(category5)
+        } else if (category === 5) {
+            setSelectedClue(category3.clues[clueNumber])
+            setSelectedCategory(category6)
         }
         setShowClueBool(true);
-        // navigate("/clue", { replace: true });
     }
 
     function showAnswer() {
-        // navigate("/answer", { replace: true });
         setShowClueBool(false);
         setShowAnswerBool(true);
     }
@@ -125,10 +138,15 @@ export default function Game() {
         setShowAnswerBool(false)
     }
 
+    function gameStart() {
+        navigate("/gameboard", { replace: true });
+    }
+
     return (
-        <div className="container">
+        <div>
             <Routes>
-                <Route path="/" element={<StartPage />} />
+                <Route path="/" element={<StartPage
+                    gameStart={gameStart}/>} />
                 <Route path="gameboard/" element={<GameBoard
                     category1={category1}
                     category2={category2}
@@ -141,6 +159,8 @@ export default function Game() {
                     showClueBool={showClueBool}
                     selectedClue={selectedClue}
                     showAnswerBool={showAnswerBool}
+                    selectedCategory={selectedCategory}
+                    selectedValue={selectedValue}
                     endTurn={endTurn} />} />
                 <Route element={<EndPage />} />
             </Routes>

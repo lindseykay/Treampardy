@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Modal from 'react-bootstrap/Modal';
 
-
 export default function AnswerModal(props) {
     return (
         <Modal show={props.showAnswerBool} backdrop="static" centered keyboard={false}>

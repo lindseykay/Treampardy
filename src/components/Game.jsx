@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import AnswerModal from "../GameComponents/AnswerModal";
-import ClueModal from "../GameComponents/ClueModal";
 import GameBoard from "../GameComponents/GameBoard";
 import EndPage from "../GameComponents/EndPage";
 import StartPage from "../GameComponents/StartPage";
@@ -127,11 +125,9 @@ export default function Game() {
             setSelectedCategory(category6)
         }
         setShowClueBool(true);
-        // navigate("/clue", { replace: true });
     }
 
     function showAnswer() {
-        // navigate("/answer", { replace: true });
         setShowClueBool(false);
         setShowAnswerBool(true);
     }
@@ -147,7 +143,7 @@ export default function Game() {
     }
 
     return (
-        <div className="container">
+        <div>
             <Routes>
                 <Route path="/" element={<StartPage
                     gameStart={gameStart}/>} />

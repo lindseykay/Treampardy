@@ -7,7 +7,6 @@ import BoardCard from "./BoardCard";
 import ClueModal from "./ClueModal";
 import AnswerModal from "./AnswerModal";
 
-
 export default function GameBoard(props) {
     return (
         <>

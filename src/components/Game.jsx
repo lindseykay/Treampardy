@@ -14,7 +14,6 @@ while (urlNumsList.length < 6) {
 }
 const [url1, url2, url3, url4, url5, url6] = urlNumsList;
 
-
 export default function Game() {
 
     const [category1, setCategory1] = useState({})

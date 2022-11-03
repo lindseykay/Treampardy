@@ -12,18 +12,8 @@ code {
     monospace;
 }
 
-.cardStyles {
-  width: 8rem;
-  margin-top: 1rem;
-}
-
-.cardHeader {
-  width: 8rem;
-  vertical-align: middle;
-}
-
 .cardHeaderText {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
 }

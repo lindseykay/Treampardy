@@ -122,7 +122,7 @@ export default function Game() {
     }
 
     return (
-        <div className="container">
+        <div>
             <Routes>
                 <Route path="/" element={<StartPage />} />
                 <Route path="gameboard/" element={<GameBoard

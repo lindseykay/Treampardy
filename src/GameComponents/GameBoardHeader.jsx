@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 
 export default function HeaderBar(props, text) {
     return (
-        <Navbar bg="light">
+        <Navbar className="navBarStyles" variant="dark">
             <Container fluid>
                 <Navbar.Collapse>
                     <Navbar.Brand>{text}</Navbar.Brand>

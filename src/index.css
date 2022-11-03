@@ -12,6 +12,24 @@ code {
     monospace;
 }
 
+.navBarStyles {
+  background-color: #39b54a;
+}
+
+.buttonStyles {
+  background-color: #39b54a;
+  border-color: #39b54a;
+}
+
+.buttonStyles:active {
+  background-color: #9fcca3;
+}
+
+.buttonStyles:hover {
+  background-color: #6ac473;
+  border-color: #6ac473;
+}
+
 .cardHeaderText {
   font-size: 14px;
   font-weight: bold;

@@ -122,8 +122,8 @@ export default function Game() {
     function endTurn(gotAnswerCorrect) {
         console.log(gotAnswerCorrect);
         navigate("/gameboard", { replace: true });
+        setShowAnswerBool(false)
     }
-
 
     return (
         <div className="container">
@@ -140,12 +140,7 @@ export default function Game() {
                     showAnswer={showAnswer}
                     showClueBool={showClueBool}
                     selectedClue={selectedClue}
-                    showAnswerBool={showAnswerBool} />} />
-                {/* <Route path="clue/" element={<ClueModal
-                    showAnswer={showAnswer}
-                    selectClue={selectClue} />} /> */}
-                <Route path="answer/" element={<AnswerModal
-                    selectedClue={selectedClue}
+                    showAnswerBool={showAnswerBool}
                     endTurn={endTurn} />} />
                 <Route element={<EndPage />} />
             </Routes>

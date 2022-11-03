@@ -8,13 +8,13 @@ import Button from 'react-bootstrap/Button';
 export default function BoardCard(props, amount, num1, num2) {
     return (
         <Col>
-        <Card>
-            <Card.Body>
-                <Card.Text>
-                    <Button onClick={(e) => props.selectClue(num1, num2)}>{amount}</Button>
-                </Card.Text>
-            </Card.Body>
-        </Card>
-    </Col>
+            <Card className="cardStyles" style={{ height: "5rem" }}>
+                <Card.Body>
+                    <Card.Text className="text-center">
+                        <Button style={{ width: "6rem" }} onClick={(e) => props.selectClue(num1, num2)}>{amount}</Button>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </Col>
     )
 }

@@ -4,11 +4,11 @@ import Row from 'react-bootstrap/Row';
 import HeaderBar from "./GameBoardHeader";
 import HeaderCard from "./HeaderCard";
 import BoardCard from "./BoardCard";
-
+import ClueModal from "./ClueModal";
+import AnswerModal from "./AnswerModal";
 
 
 export default function GameBoard(props) {
-
     return (
         <>
             <div>
@@ -24,6 +24,7 @@ export default function GameBoard(props) {
                         {HeaderCard(props.category5.title?.toUpperCase())}
                         {HeaderCard(props.category6.title?.toUpperCase())}
                     </Row>
+                    <br />
                     <Row>
                         {BoardCard(props, "200", 0, 0)}
                         {BoardCard("200")}
@@ -57,14 +58,18 @@ export default function GameBoard(props) {
                         {BoardCard("800")}
                     </Row>
                     <Row>
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
-                        {BoardCard("400")}
+                        {BoardCard("1000")}
+                        {BoardCard("1000")}
+                        {BoardCard("1000")}
+                        {BoardCard("1000")}
+                        {BoardCard("1000")}
+                        {BoardCard("1000")}
                     </Row>
                 </Container>
+            </div>
+            <div>
+                {ClueModal(props)}
+                {AnswerModal(props)}
             </div>
         </>
     )

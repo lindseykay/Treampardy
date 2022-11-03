@@ -1,21 +1,27 @@
 import React from "react"
-import { NavLink } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
 import Button from "react-bootstrap/Button";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Modal from 'react-bootstrap/Modal';
 
 
 export default function AnswerModal(props) {
     return (
-        <Container>
-            <NavLink className="navbar-brand" to="/">Home</NavLink>
-            <NavLink className="navbar-brand" to="/gameboard/">GameBoard</NavLink>
-            <p>For {props.selectedClue.value} points:</p>
-            <p>{props.selectedClue.answer}</p>
-
-            <Button onClick={(e) => props.endTurn(true)}>Correct!</Button>
-            <Button onClick={(e) => props.endTurn(false)}>Incorrect!</Button>
-
-
-        </Container>
+        <Modal show={props.showAnswerBool} backdrop="static" centered keyboard={false}>
+            <Modal.Header>
+                <Modal.Title>For: {props.amount}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <br />
+                What/who is/was {props.selectedClue.answer}?
+                <br />
+                <br />
+            </Modal.Body>
+            <Modal.Footer>
+                <ButtonGroup>
+                    <Button variant="success" onClick={(e) => props.endTurn(true)}>I got it right!</Button>
+                    <Button variant="danger" onClick={(e) => props.endTurn(false)}>I got it wrong!</Button>
+                </ButtonGroup>
+            </Modal.Footer>
+        </Modal>
     )
 };

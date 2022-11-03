@@ -17,8 +17,8 @@ export default function AnswerModal(props) {
             </Modal.Body>
             <Modal.Footer>
                 <ButtonGroup>
-                    <Button variant="success" onClick={(e) => {props.setScore(props.score + props.selectedClue.value); props.endTurn(true)}}>I got it right!</Button>
-                    <Button variant="danger" onClick={(e) => {props.setScore(props.score - props.selectedClue.value); props.endTurn(false)}}>I got it wrong!</Button>
+                    <Button variant="success" onClick={(e) => {props.setScore(props.score + props.selectedValue); props.endTurn(true)}}>I got it right!</Button>
+                    <Button variant="danger" onClick={(e) => {props.setScore(props.score - props.selectedValue); props.endTurn(false)}}>I got it wrong!</Button>
                 </ButtonGroup>
             </Modal.Footer>
         </Modal>

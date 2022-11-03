@@ -3,11 +3,18 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 
-export default function HeaderBar(text) {
+export default function HeaderBar(props, text) {
     return (
         <Navbar bg="light">
-            <Container>
-                <Navbar.Brand>{text}</Navbar.Brand>
+            <Container fluid>
+                <Navbar.Collapse>
+                    <Navbar.Brand>{text}</Navbar.Brand>
+                </Navbar.Collapse>
+                <Navbar.Collapse className="justify-content-end">
+                    <Navbar.Text>
+                        <p>Score: <strong>{props.score}</strong></p>
+                    </Navbar.Text>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     )

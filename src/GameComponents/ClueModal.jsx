@@ -7,13 +7,13 @@ export default function ClueModal(props) {
     return (
         <Modal show={props.showClueBool} backdrop="static" centered keyboard={false}>
             <Modal.Header>
-                <Modal.Title>Category: {props.selectedCategory.title?.toUpperCase()}</Modal.Title>
+                <Modal.Title>For: ${props.selectedValue}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <br />
                 {props.selectedClue.question}...
                 <br />
-                <br/>
+                <br />
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={(e) => props.showAnswer()}>Show me the QUESTION</Button>

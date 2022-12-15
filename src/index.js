@@ -5,11 +5,9 @@ import App from './components/App';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const domain = /https:\/\/[^/]+/;
-const basename = process.env.PUBLIC_URL.replace(domain, '');
 
 root.render(
-  <App basename={basename}/>
+  <App/>
 );
 
 // If you want to start measuring performance in your app, pass a function

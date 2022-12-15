@@ -6,7 +6,7 @@ build-front-end-job:
   stage: build
   image: node:lts-bullseye
   variables:
-    PUBLIC_URL: https://treamforce.gitlab.io/treampardy/
+    PUBLIC_URL: https://treamforce.gitlab.io/treampardy-take-2/
   script:
     - npm install
     - npm run build

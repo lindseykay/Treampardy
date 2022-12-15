@@ -9,9 +9,7 @@ const domain = /https:\/\/[^/]+/;
 const basename = process.env.PUBLIC_URL.replace(domain, '');
 
 root.render(
-  <React.StrictMode>
-    <App basename={basename}/>
-  </React.StrictMode>
+  <App basename={basename}/>
 );
 
 // If you want to start measuring performance in your app, pass a function

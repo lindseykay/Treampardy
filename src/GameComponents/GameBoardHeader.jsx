@@ -9,7 +9,7 @@ export default function HeaderBar(props, text) {
             <Container fluid>
                 <Navbar.Collapse>
                     <Navbar.Brand>
-                        <img src="/Treampardy-Logo-White.svg" width="30" height="30" className="d-inline-block align-top" alt="Treampardy Header Logo"/>
+                        <img src={`${process.env.PUBLIC_URL}/Treampardy-Logo-White.svg`} width="30" height="30" className="d-inline-block align-top" alt="Treampardy Header Logo"/>
                         {text}
                     </Navbar.Brand>
                 </Navbar.Collapse>

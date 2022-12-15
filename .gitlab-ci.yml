@@ -1,0 +1,33 @@
+stages:
+  - build
+  - deploy
+
+build-front-end-job:
+  stage: build
+  image: node:lts-bullseye
+  variables:
+    PUBLIC_URL: https://treamforce.gitlab.io/treampardy/
+  script:
+    - npm install
+    - npm run build
+    - cp build/index.html build/404.html
+  artifacts:
+    paths:
+      - build/
+
+pages:
+  stage: deploy
+  rules:
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build-front-end-job
+  needs:
+    - build-front-end-job
+  script:
+    - mv ghi/build/ public
+  artifacts:
+    paths:
+      # The folder that contains the files to be exposed at the Page URL
+      - public

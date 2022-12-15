@@ -6,9 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const domain = /https:\/\/[^/]+/;
+const basename = process.env.PUBLIC_URL.replace(domain, '');
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App basename={basename}/>
   </React.StrictMode>
 );
 

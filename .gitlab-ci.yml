@@ -26,7 +26,7 @@ pages:
   needs:
     - build-front-end-job
   script:
-    - mv ghi/build/ public
+    - mv build/ public
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL

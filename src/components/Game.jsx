@@ -33,7 +33,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory1() {
-            const url = `https://jservice.io/api/category?id=${url1}`;
+            const url = `http://jservice.io/api/category?id=${url1}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -45,7 +45,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory2() {
-            const url = `https://jservice.io/api/category?id=${url2}`;
+            const url = `http://jservice.io/api/category?id=${url2}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -57,7 +57,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory3() {
-            const url = `https://jservice.io/api/category?id=${url3}`;
+            const url = `http://jservice.io/api/category?id=${url3}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -69,7 +69,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory4() {
-            const url = `https://jservice.io/api/category?id=${url4}`;
+            const url = `http://jservice.io/api/category?id=${url4}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -81,7 +81,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory5() {
-            const url = `https://jservice.io/api/category?id=${url5}`;
+            const url = `http://jservice.io/api/category?id=${url5}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -93,7 +93,7 @@ export default function Game() {
 
     useEffect(() => {
         async function fetchCategory6() {
-            const url = `https://jservice.io/api/category?id=${url6}`;
+            const url = `http://jservice.io/api/category?id=${url6}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();

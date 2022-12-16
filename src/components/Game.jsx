@@ -31,100 +31,52 @@ export default function Game() {
 
     let navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchCategory1() {
-            const url = `https://jservice.io/api/category?id=${url1}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory1(data);
-            }
+    const fetchCategories = async() => {
+        const fullUrl1 = `https://jservice.io/api/category?id=${url1}`;
+        const fullUrl2 = `https://jservice.io/api/category?id=${url2}`;
+        const fullUrl3 = `https://jservice.io/api/category?id=${url3}`;
+        const fullUrl4 = `https://jservice.io/api/category?id=${url4}`;
+        const fullUrl5 = `https://jservice.io/api/category?id=${url5}`;
+        const fullUrl6 = `https://jservice.io/api/category?id=${url6}`;
+        const fetchParameters = {
+            method: 'GET',
+            mode: 'cors',
+            credentials: 'same-origin',
+            headers: {
+                'origin': '',
+            },
+        };
+        const response1 = await fetch(fullUrl1, fetchParameters);
+        const response2 = await fetch(fullUrl2, fetchParameters);
+        const response3 = await fetch(fullUrl3, fetchParameters);
+        const response4 = await fetch(fullUrl4, fetchParameters);
+        const response5 = await fetch(fullUrl5, fetchParameters);
+        const response6 = await fetch(fullUrl6, fetchParameters);
+        if (
+            response1.ok &&
+            response2.ok &&
+            response3.ok &&
+            response4.ok &&
+            response5.ok &&
+            response6.ok
+        ) {
+            const data1 = await response1.json();
+            const data2 = await response2.json();
+            const data3 = await response3.json();
+            const data4 = await response4.json();
+            const data5 = await response5.json();
+            const data6 = await response6.json();
+            setCategory1(data1);
+            setCategory2(data2);
+            setCategory3(data3);
+            setCategory4(data4);
+            setCategory5(data5);
+            setCategory6(data6);
         }
-        fetchCategory1();
-    }, []);
+    };
 
     useEffect(() => {
-        async function fetchCategory2() {
-            const url = `https://jservice.io/api/category?id=${url2}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory2(data);
-            }
-        }
-        fetchCategory2();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory3() {
-            const url = `https://jservice.io/api/category?id=${url3}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory3(data);
-            }
-        }
-        fetchCategory3();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory4() {
-            const url = `https://jservice.io/api/category?id=${url4}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory4(data);
-            }
-        }
-        fetchCategory4();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory5() {
-            const url = `https://jservice.io/api/category?id=${url5}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory5(data);
-            }
-        }
-        fetchCategory5();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory6() {
-            const url = `https://jservice.io/api/category?id=${url6}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory6(data);
-            }
-        }
-        fetchCategory6();
+        fetchCategories()
     }, []);
 
     function selectClue(category, clueNumber) {

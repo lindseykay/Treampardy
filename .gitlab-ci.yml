@@ -24,7 +24,7 @@ pages:
   needs:
     - build-front-end-job
   script:
-    - mv build/ public
+    - mv build/* public
   artifacts:
     paths:
       - public

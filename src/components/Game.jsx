@@ -37,6 +37,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();
@@ -52,6 +53,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();
@@ -67,6 +69,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();
@@ -82,6 +85,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();
@@ -97,6 +101,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();
@@ -112,6 +117,7 @@ export default function Game() {
             const response = await fetch(url, {
                 method: 'GET',
                 mode: 'cors',
+                credentials: 'same-origin',
             });
             if (response.ok) {
                 const data = await response.json();

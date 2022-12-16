@@ -42,9 +42,10 @@ export default function Game() {
             method: 'GET',
             mode: 'cors',
             credentials: 'same-origin',
-            headers: {
-                'origin': '',
-            },
+            // referrerPolicy: 'strict-origin-when-cross-origin'
+            // headers: {
+            //     // 'origin': '',
+            // },
         };
         const response1 = await fetch(fullUrl1, fetchParameters);
         const response2 = await fetch(fullUrl2, fetchParameters);

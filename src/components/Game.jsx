@@ -10,8 +10,7 @@ while (urlNumsList.length < 6) {
     if (!urlNumsList.includes(urlNum)) {
         urlNumsList.push(urlNum);
     }
-}
-// const [url1, url2, url3, url4, url5, url6] = urlNumsList;
+};
 
 export default function Game() {
 
@@ -30,29 +29,22 @@ export default function Game() {
         let tempCategoryList = []
         const fetchCategories = async() => {
             const fetchParameters = {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
+                // method: 'GET',
+                // mode: 'cors',
+                // credentials: 'same-origin',
                 // referrerPolicy: 'strict-origin-when-cross-origin',
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
                     "Content-Type": "application/json",
                 },
-            }
+            };
             for (let i = 0; i < urlNumsList.length; i++) {
                 console.log(i);
-                const response = await fetch (`http://jservice.io/api/category?id=${urlNumsList[i]}`, fetchParameters)
-                setTimeout(2000);
+                const response = await fetch(`https://jservice.io/api/category?id=${urlNumsList[i]}`, fetchParameters)
                 if (response.ok) {
-                    setTimeout(2000);
-                    console.log("response::", response)
                     const data = await response.json();
-                    console.log(data);
                     tempCategoryList.push(data);
-                    setTimeout(2000);
                 } else {
                     console.log("Sorry you got a bad response!!!");
-                    console.log("response::", response)
                 };
             }
         }
@@ -60,68 +52,6 @@ export default function Game() {
         setCategoryList(tempCategoryList);
     }, []);
 
-    // const fetchCategories = async() => {
-    //     for (let i = 0; i < urlNumsList.length; i++) {
-    //         const response = await fetch (`https://jservice.io/api/category?id=${urlNumsList[i]}`)
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             console.log(data);
-    //             functionList[i](data);
-    //         } else {
-    //             console.log("PROBLEMS!");
-    //         };
-    //     };
-    // };
-
-    // const fetchCategories = async() => {
-    //     const fullUrl1 = `http://jservice.io/api/category?id=${url1}`;
-    //     const fullUrl2 = `http://jservice.io/api/category?id=${url2}`;
-    //     const fullUrl3 = `http://jservice.io/api/category?id=${url3}`;
-    //     const fullUrl4 = `http://jservice.io/api/category?id=${url4}`;
-    //     const fullUrl5 = `http://jservice.io/api/category?id=${url5}`;
-    //     const fullUrl6 = `http://jservice.io/api/category?id=${url6}`;
-    //     const fetchParameters = {
-    //         // method: 'GET',
-    //         // mode: 'cors',
-    //         // credentials: 'same-origin',
-    //         // // referrerPolicy: 'strict-origin-when-cross-origin'
-    //         // // headers: {
-    //         // //     // 'origin': '',
-    //         // // },
-    //     };
-    //     const response1 = await fetch(fullUrl1, fetchParameters);
-    //     const response2 = await fetch(fullUrl2, fetchParameters);
-    //     const response3 = await fetch(fullUrl3, fetchParameters);
-    //     const response4 = await fetch(fullUrl4, fetchParameters);
-    //     const response5 = await fetch(fullUrl5, fetchParameters);
-    //     const response6 = await fetch(fullUrl6, fetchParameters);
-    //     if (
-    //         response1.ok &&
-    //         response2.ok &&
-    //         response3.ok &&
-    //         response4.ok &&
-    //         response5.ok &&
-    //         response6.ok
-    //     ) {
-    //         const data1 = await response1.json();
-    //         const data2 = await response2.json();
-    //         const data3 = await response3.json();
-    //         const data4 = await response4.json();
-    //         const data5 = await response5.json();
-    //         const data6 = await response6.json();
-    //         setCategory1(data1);
-    //         setCategory2(data2);
-    //         setCategory3(data3);
-    //         setCategory4(data4);
-    //         setCategory5(data5);
-    //         setCategory6(data6);
-    //     }
-    // };
-
-    // useEffect(() => {
-    //     fetchCategories();
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
 
     function selectClue(category, clueNumber) {
         setSelectedValue((clueNumber + 1) * 200)
@@ -167,12 +97,6 @@ export default function Game() {
                 <Route path="/" element={<StartPage
                     gameStart={gameStart}/>} />
                 <Route path="gameboard/" element={<GameBoard
-                    // category1={category1}
-                    // category2={category2}
-                    // category3={category3}
-                    // category4={category4}
-                    // category5={category5}
-                    // category6={category6}
                     category1={categoryList[0]}
                     category2={categoryList[1]}
                     category3={categoryList[2]}

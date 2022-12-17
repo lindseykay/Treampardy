@@ -4,23 +4,18 @@ import GameBoard from "../GameComponents/GameBoard";
 import EndPage from "../GameComponents/EndPage";
 import StartPage from "../GameComponents/StartPage";
 
-// let urlNumsList = [];
-// while (urlNumsList.length < 6) {
-//     let urlNum = Math.floor(Math.random() * 27723 + 1);
-//     if (!urlNumsList.includes(urlNum)) {
-//         urlNumsList.push(urlNum);
-//     }
-// }
+let urlNumsList = [];
+while (urlNumsList.length < 6) {
+    let urlNum = Math.floor(Math.random() * 27723 + 1);
+    if (!urlNumsList.includes(urlNum)) {
+        urlNumsList.push(urlNum);
+    }
+}
 // const [url1, url2, url3, url4, url5, url6] = urlNumsList;
 
 export default function Game() {
 
-    const [category1, setCategory1] = useState({});
-    const [category2, setCategory2] = useState({});
-    const [category3, setCategory3] = useState({});
-    const [category4, setCategory4] = useState({});
-    const [category5, setCategory5] = useState({});
-    const [category6, setCategory6] = useState({});
+    const [categoryList, setCategoryList] = useState([]);
     const [selectedClue, setSelectedClue] = useState({});
     const [showClueBool, setShowClueBool] = useState(false);
     const [showAnswerBool, setShowAnswerBool] = useState(false);
@@ -30,10 +25,42 @@ export default function Game() {
 
     let navigate = useNavigate();
 
-    const functionList = [setCategory1(), setCategory2(), setCategory3(), setCategory4(), setCategory5(), setCategory6()];
 
-    // useEffect(() => {
-    //     const fetchCategories = async() => {
+    useEffect(() => {
+        let tempCategoryList = []
+        const fetchCategories = async() => {
+            const fetchParameters = {
+                method: 'GET',
+                mode: 'cors',
+                credentials: 'same-origin',
+                // referrerPolicy: 'strict-origin-when-cross-origin',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    "Content-Type": "application/json",
+                },
+            }
+            for (let i = 0; i < urlNumsList.length; i++) {
+                console.log(i);
+                const response = await fetch (`http://jservice.io/api/category?id=${urlNumsList[i]}`, fetchParameters)
+                setTimeout(2000);
+                if (response.ok) {
+                    setTimeout(2000);
+                    console.log("response::", response)
+                    const data = await response.json();
+                    console.log(data);
+                    tempCategoryList.push(data);
+                    setTimeout(2000);
+                } else {
+                    console.log("Sorry you got a bad response!!!");
+                    console.log("response::", response)
+                };
+            }
+        }
+        fetchCategories();
+        setCategoryList(tempCategoryList);
+    }, []);
+
+    // const fetchCategories = async() => {
     //     for (let i = 0; i < urlNumsList.length; i++) {
     //         const response = await fetch (`https://jservice.io/api/category?id=${urlNumsList[i]}`)
     //         if (response.ok) {
@@ -43,33 +70,8 @@ export default function Game() {
     //         } else {
     //             console.log("PROBLEMS!");
     //         };
-    //     };}
-    //     fetchCategories();
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
-
-    let urlNumsList = [];
-
-    const generateRandomNumbers = () => {
-        while (urlNumsList.length < 6) {
-            let urlNum = Math.floor(Math.random() * 27723 + 1);
-            if (!urlNumsList.includes(urlNum)) {
-                urlNumsList.push(urlNum);
-            };
-        };
-    };
-
-    const fetchCategories = async() => {
-    for (let i = 0; i < urlNumsList.length; i++) {
-        const response = await fetch (`https://jservice.io/api/category?id=${urlNumsList[i]}`)
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data);
-            functionList[i](data);
-        } else {
-            console.log("PROBLEMS!");
-        };
-    };}
+    //     };
+    // };
 
     // const fetchCategories = async() => {
     //     const fullUrl1 = `http://jservice.io/api/category?id=${url1}`;
@@ -116,32 +118,31 @@ export default function Game() {
     //     }
     // };
 
-    useEffect(() => {
-        generateRandomNumbers();
-        fetchCategories();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     fetchCategories();
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     function selectClue(category, clueNumber) {
         setSelectedValue((clueNumber + 1) * 200)
         if (category === 0) {
-            setSelectedClue(category1.clues[clueNumber])
-            setSelectedCategory(category1)
+            setSelectedClue(categoryList[0].clues[clueNumber])
+            setSelectedCategory(categoryList[0])
         } else if (category === 1) {
-            setSelectedClue(category2.clues[clueNumber])
-            setSelectedCategory(category2)
+            setSelectedClue(categoryList[1].clues[clueNumber])
+            setSelectedCategory(categoryList[1])
         } else if (category === 2) {
-            setSelectedClue(category3.clues[clueNumber])
-            setSelectedCategory(category3)
+            setSelectedClue(categoryList[2].clues[clueNumber])
+            setSelectedCategory(categoryList[2])
         } else if (category === 3) {
-            setSelectedClue(category4.clues[clueNumber])
-            setSelectedCategory(category4)
+            setSelectedClue(categoryList[3].clues[clueNumber])
+            setSelectedCategory(categoryList[3])
         } else if (category === 4) {
-            setSelectedClue(category5.clues[clueNumber])
-            setSelectedCategory(category5)
+            setSelectedClue(categoryList[4].clues[clueNumber])
+            setSelectedCategory(categoryList[4])
         } else if (category === 5) {
-            setSelectedClue(category3.clues[clueNumber])
-            setSelectedCategory(category6)
+            setSelectedClue(categoryList[5].clues[clueNumber])
+            setSelectedCategory(categoryList[5])
         }
         setShowClueBool(true);
     }
@@ -166,12 +167,18 @@ export default function Game() {
                 <Route path="/" element={<StartPage
                     gameStart={gameStart}/>} />
                 <Route path="gameboard/" element={<GameBoard
-                    category1={category1}
-                    category2={category2}
-                    category3={category3}
-                    category4={category4}
-                    category5={category5}
-                    category6={category6}
+                    // category1={category1}
+                    // category2={category2}
+                    // category3={category3}
+                    // category4={category4}
+                    // category5={category5}
+                    // category6={category6}
+                    category1={categoryList[0]}
+                    category2={categoryList[1]}
+                    category3={categoryList[2]}
+                    category4={categoryList[3]}
+                    category5={categoryList[4]}
+                    category6={categoryList[5]}
                     selectClue={selectClue}
                     showAnswer={showAnswer}
                     showClueBool={showClueBool}

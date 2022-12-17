@@ -28,18 +28,19 @@ export default function Game() {
     useEffect(() => {
         let tempCategoryList = []
         const fetchCategories = async() => {
-            const fetchParameters = {
+            // const fetchParameters = {
                 // method: 'GET',
                 // mode: 'cors',
-                // credentials: 'same-origin',
+                // credentials: 'include',
                 // referrerPolicy: 'strict-origin-when-cross-origin',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            };
+                // headers: {
+                    // "Content-Type": "application/json",
+                    // 'Access-Control-Allow-Origin': "https://localhost:3000",
+                // },
+            // };
             for (let i = 0; i < urlNumsList.length; i++) {
                 console.log(i);
-                const response = await fetch(`https://jservice.io/api/category?id=${urlNumsList[i]}`, fetchParameters)
+                const response = await fetch(`https://jservice.io/api/category?id=${urlNumsList[i]}`)
                 if (response.ok) {
                     const data = await response.json();
                     tempCategoryList.push(data);

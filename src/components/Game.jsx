@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from 'react-router-dom';
-
 import GameBoard from "../GameComponents/GameBoard";
 import EndPage from "../GameComponents/EndPage";
 import StartPage from "../GameComponents/StartPage";
@@ -11,142 +10,70 @@ while (urlNumsList.length < 6) {
     if (!urlNumsList.includes(urlNum)) {
         urlNumsList.push(urlNum);
     }
-}
-const [url1, url2, url3, url4, url5, url6] = urlNumsList;
+};
 
 export default function Game() {
 
-    const [category1, setCategory1] = useState({})
-    const [category2, setCategory2] = useState({})
-    const [category3, setCategory3] = useState({})
-    const [category4, setCategory4] = useState({})
-    const [category5, setCategory5] = useState({})
-    const [category6, setCategory6] = useState({})
-    const [selectedClue, setSelectedClue] = useState({})
-    const [showClueBool, setShowClueBool] = useState(false)
-    const [showAnswerBool, setShowAnswerBool] = useState(false)
-    const [selectedCategory, setSelectedCategory] = useState({})
-    const [selectedValue, setSelectedValue] = useState(0)
-    const [score, setScore] = useState(0)
+    const [categoryList, setCategoryList] = useState([]);
+    const [selectedClue, setSelectedClue] = useState({});
+    const [showClueBool, setShowClueBool] = useState(false);
+    const [showAnswerBool, setShowAnswerBool] = useState(false);
+    const [selectedCategory, setSelectedCategory] = useState({});
+    const [selectedValue, setSelectedValue] = useState(0);
+    const [score, setScore] = useState(0);
 
     let navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchCategory1() {
-            const url = `https://jservice.io/api/category?id=${url1}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory1(data);
-            }
-        }
-        fetchCategory1();
-    }, []);
 
     useEffect(() => {
-        async function fetchCategory2() {
-            const url = `https://jservice.io/api/category?id=${url2}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory2(data);
+        let tempCategoryList = []
+        const fetchCategories = async() => {
+            // const fetchParameters = {
+                // method: 'GET',
+                // mode: 'cors',
+                // credentials: 'include',
+                // referrerPolicy: 'strict-origin-when-cross-origin',
+                // headers: {
+                    // "Content-Type": "application/json",
+                    // 'Access-Control-Allow-Origin': "https://localhost:3000",
+                // },
+            // };
+            for (let i = 0; i < urlNumsList.length; i++) {
+                console.log(i);
+                const response = await fetch(`https://jservice.io/api/category?id=${urlNumsList[i]}`)
+                if (response.ok) {
+                    const data = await response.json();
+                    tempCategoryList.push(data);
+                } else {
+                    console.log("Sorry you got a bad response!!!");
+                };
             }
         }
-        fetchCategory2();
+        fetchCategories();
+        setCategoryList(tempCategoryList);
     }, []);
 
-    useEffect(() => {
-        async function fetchCategory3() {
-            const url = `https://jservice.io/api/category?id=${url3}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory3(data);
-            }
-        }
-        fetchCategory3();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory4() {
-            const url = `https://jservice.io/api/category?id=${url4}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory4(data);
-            }
-        }
-        fetchCategory4();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory5() {
-            const url = `https://jservice.io/api/category?id=${url5}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory5(data);
-            }
-        }
-        fetchCategory5();
-    }, []);
-
-    useEffect(() => {
-        async function fetchCategory6() {
-            const url = `https://jservice.io/api/category?id=${url6}`;
-            const response = await fetch(url, {
-                method: 'GET',
-                mode: 'cors',
-                credentials: 'same-origin',
-            });
-            if (response.ok) {
-                const data = await response.json();
-                setCategory6(data);
-            }
-        }
-        fetchCategory6();
-    }, []);
 
     function selectClue(category, clueNumber) {
         setSelectedValue((clueNumber + 1) * 200)
         if (category === 0) {
-            setSelectedClue(category1.clues[clueNumber])
-            setSelectedCategory(category1)
+            setSelectedClue(categoryList[0].clues[clueNumber])
+            setSelectedCategory(categoryList[0])
         } else if (category === 1) {
-            setSelectedClue(category2.clues[clueNumber])
-            setSelectedCategory(category2)
+            setSelectedClue(categoryList[1].clues[clueNumber])
+            setSelectedCategory(categoryList[1])
         } else if (category === 2) {
-            setSelectedClue(category3.clues[clueNumber])
-            setSelectedCategory(category3)
+            setSelectedClue(categoryList[2].clues[clueNumber])
+            setSelectedCategory(categoryList[2])
         } else if (category === 3) {
-            setSelectedClue(category4.clues[clueNumber])
-            setSelectedCategory(category4)
+            setSelectedClue(categoryList[3].clues[clueNumber])
+            setSelectedCategory(categoryList[3])
         } else if (category === 4) {
-            setSelectedClue(category5.clues[clueNumber])
-            setSelectedCategory(category5)
+            setSelectedClue(categoryList[4].clues[clueNumber])
+            setSelectedCategory(categoryList[4])
         } else if (category === 5) {
-            setSelectedClue(category3.clues[clueNumber])
-            setSelectedCategory(category6)
+            setSelectedClue(categoryList[5].clues[clueNumber])
+            setSelectedCategory(categoryList[5])
         }
         setShowClueBool(true);
     }
@@ -171,12 +98,12 @@ export default function Game() {
                 <Route path="/" element={<StartPage
                     gameStart={gameStart}/>} />
                 <Route path="gameboard/" element={<GameBoard
-                    category1={category1}
-                    category2={category2}
-                    category3={category3}
-                    category4={category4}
-                    category5={category5}
-                    category6={category6}
+                    category1={categoryList[0]}
+                    category2={categoryList[1]}
+                    category3={categoryList[2]}
+                    category4={categoryList[3]}
+                    category5={categoryList[4]}
+                    category6={categoryList[5]}
                     selectClue={selectClue}
                     showAnswer={showAnswer}
                     showClueBool={showClueBool}
